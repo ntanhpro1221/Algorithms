@@ -1,1 +1,24 @@
-*Đọc trước về cặp ghép cực đại.
+YÊU CẦU: đọc trước về cặp ghép cực đại.
+
+BÀI TOÁN ------------------------------------------------------------------------------------------------------------------------
+* Cho đồ thị 2 phía, có trọng số, tìm cặp ghép cực đại có trọng số cực tiểu (cực đại).
+
+KHÁI NIỆM -----------------------------------------------------------------------------------------------------------------------
+* Đường tăng: xem lại phần cặp ghép cực đại.
+* u[], v[]: giá trị của các nút ở bên trái và bên phải đồ thị.
+* Đồ thị cân bằng: 
+	- Gồm toàn bộ nút của đồ thị ban đầu.
+	- Chỉ gồm các cạnh (x, y) sao cho u[x] + v[y] == w[x][y].
+
+THI TRIỂN -----------------------------------------------------------------------------------------------------------------------
+* Liên tục lặp lại các thao tác:
+	- B0: Nếu đã tìm được n full cặp ghép thì dừng thuật toán.
+	- B1: Tìm đường tăng trên đồ thị cân bằng. Nếu không tìm được chuyển sang bước 3.
+	- B2: Lật các cạnh trên đường tăng (chưa ghép --> ghép | ghép --> chưa ghép) rồi quay lại bước 2.
+	- B3: Gọi S, T là tập các nút được duyệt qua (trong quá trình tìm đường tăng thất bại!!) ở bên trái và bên phải:
+		+ Lấy del = min(w[i][j] - u[i] - v[j]) với mọi i thuộc S, j không thuộc T.
+		+ u[i] += del với mọi i thuộc S.
+		+ v[i] -= del với mọi j thuộc T.
+		+ Thêm các cạnh mới thỏa mãn vào đồ thị cân bằng
+
+CHỨNG MINH ----------------------------------------------------------------------------------------------------------------------
