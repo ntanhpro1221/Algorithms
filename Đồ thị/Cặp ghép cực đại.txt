@@ -1,0 +1,23 @@
+BÀI TOÁN ------------------------------------------------------------------------------------------------------------------------
+* Cho đồ thị 2 phía, tìm cặp ghép cực đại.
+
+KHÁI NIỆM -----------------------------------------------------------------------------------------------------------------------
+* Đường tăng: 
+	- Nút đầu và nút cuối đều chưa ghép.
+	- Cạnh trên đường đi xen kẽ giữa cạnh ghép và chưa ghép.
+
+THI TRIỂN -----------------------------------------------------------------------------------------------------------------------
+* Liên tục lặp lại:
+	- Tìm đường tăng. Nếu không tìm được thì dừng thuật toán (đã tìm được cặp ghép cực đại).
+	- Lật các cạnh trên đường tăng (chưa ghép --> ghép | ghép --> chưa ghép).
+
+CHỨNG MINH ----------------------------------------------------------------------------------------------------------------------
+* Không tìm được đường tăng => số cặp ghép đã cực đại:
+	- Ta sẽ chứng minh thông qua: nếu tồn tại tập cặp ghép lớn hơn thì chắc chắn sẽ tồn tại đường tăng.
+	- Gọi tập cặp ghép hiện tại là M.
+	- Giả sử tồn tại một tập cặp ghép N có lực lượng lớn hơn N.
+	- Gọi tập các cạnh chỉ thuộc M là A, tập các cạnh chỉ thuộc N là B.
+	- Vì |A| < |B| nên luôn tồn tại một con đường thỏa mãn:
+		+ Nút đầu và nút cuối chỉ được ghép bới N.
+		+ Các cạnh trên đường đi xen kẽ giữa (thuộc tập A) và (thuộc tập B).
+	- Con đường đó chính là đường tăng.
